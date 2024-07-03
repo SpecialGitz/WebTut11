@@ -8,6 +8,24 @@
     {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
     <link rel="stylesheet" href="{%static '/Style/audio.css'%}" />
   </head>
-  <body></body>
+  <body>
+    <div>
+      <h1>Audio</h1>
+      <audio controls autoplay>
+        <source src="{%static '/Upload/audio.mp3' %}" type="audio/ogg" />
+        <source src="{%static 'Upload/audio.ogg'%}" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div id="transcript"></div>
+
+    <div>
+      <h1>Video</h1>
+      <video width="320" height="240" autoplay controls>
+        <source src="{%static 'Upload/video.mp4'%}" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </body>
   <script src="{% static '/Scripts/audio.js'  %}"></script>
 </html>
