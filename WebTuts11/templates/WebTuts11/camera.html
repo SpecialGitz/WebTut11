@@ -15,26 +15,7 @@
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Upload</button>
     </form>
-{#    <div id="cameraContainer">#}
-{#        <video autoplay="true" id="videoElement" loop muted>#}
-{##}
-{#        </video>#}
-{#        <button type="button"#}
-{#                class="btn btn-lg btn-outline-primary" id="shutter">#}
-{#            <i class="bi bi-record-circle"></i>#}
-{#        </button>#}
-{#        <button class="btn btn-primary" id="startVideo">Start Video</button>#}
-{#        <button class="btn btn-danger" id="stopVideo">Stop Video</button>#}
-{##}
-{##}
-{#    </div>#}
-{#    <div id="imageContainer">#}
-{#        <canvas id="canvas">#}
-{##}
-{#        </canvas>#}
-{#        <button id="resetImage" class="btn btn-danger">Reset</button>#}
-{#        <button id="uploadImage" class="btn btn-primary">Upload Image</button>#}
-{#    </div>#}
+    <a class="btn btn-primary" href="{% url 'camera_capture_page' %}">Take Photo from Camera</a>
 </div>
 </body>
 <script src="{% static '/Scripts/camera.js' %}"></script>
