@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     {% load static %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Audio</title>
     {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
-    <link rel="stylesheet" href="{%static '/Style/audio.css'%}" />
-  </head>
-  <body>
-    <div>
-      <h1>Audio</h1>
-      <audio controls autoplay>
-        <source src="{%static '/Upload/audio.mp3' %}" type="audio/ogg" />
-        <source src="{%static 'Upload/audio.ogg'%}" type="audio/mpeg" />
+    <link rel="stylesheet" href="{%static '/Style/audio.css'%}"/>
+</head>
+<body>
+<div>
+    <h1>Audio</h1>
+    <audio id="audio" controls autoplay>
+        <source src="{%static '/Upload/audio.mp3' %}" type="audio/mpeg"/>
+        <source src="{%static '/Upload/audio.ogg'%}" type="audio/ogg"/>
         Your browser does not support the audio element.
-      </audio>
-    </div>
+    </audio>
+</div>
+<div>
+    <h2>Transcript: </h2>
     <div id="transcript"></div>
+</div>
 
-    <div>
-      <h1>Video</h1>
-      <video width="320" height="240" autoplay controls>
-        <source src="{%static 'Upload/video.mp4'%}" type="video/mp4" />
+<div>
+    <h1>Video</h1>
+    <video width="320" height="240" autoplay controls>
+        <source src="{%static '/Upload/video.mp4'%}" type="video/mp4"/>
+        <track src="{% static 'Upload/transcript.vtt' %}" kind="subtitles" srclang="en" label="English">
         Your browser does not support the video tag.
-      </video>
-    </div>
-  </body>
-  <script src="{% static '/Scripts/audio.js'  %}"></script>
+    </video>
+</div>
+</body>
+<script src="{% static '/Scripts/audio.js' %}"></script>
 </html>
