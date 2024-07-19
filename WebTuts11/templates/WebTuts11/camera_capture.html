@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Camera</title>
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'Style/camera.css' %}"/>
+</head>
+<body class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <video autoplay="true" id="videoElement" class="img-fluid mb-3" loop muted></video>
+                    <div class="d-flex justify-content-between mb-3">
+                        <button class="btn btn-primary" id="startVideo">Start Video</button>
+                        <button class="btn btn-danger" id="stopVideo">Stop Video</button>
+                        <button class="btn btn-primary" id="capturePhoto">Capture Photo</button>
+                    </div>
+                    <form method="post" enctype="multipart/form-data" id="uploadForm">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Enter Your Name" name="imageName" id="imageName">
+                        </div>
+                        <input type="hidden" name="imageDataInput" id="imageDataInput">
+                        <button type="submit" class="btn btn-primary w-100" id="uploadButton">Upload Image</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="canvasElement" class="img-fluid"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{% static 'Scripts/camera.js' %}"></script>
+</html>

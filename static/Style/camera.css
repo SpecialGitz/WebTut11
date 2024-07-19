@@ -1,0 +1,21 @@
+#cameraContainer {
+    margin: 0px auto;
+    width: 500px;
+    height: 375px;
+    border: 10px #333 solid;
+}
+
+#videoElement {
+    width: 500px;
+    height: 375px;
+    background-color: #666;
+}
+
+#canvas {
+    width: 500px;
+    height: 375px;
+}
+
+#resetImage{
+    display: none;
+}
