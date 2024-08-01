@@ -1,15 +1,11 @@
 import os
 import base64
-import json
 
-from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 
 from WebTut11 import settings
 from .forms import ImageUploadForm
-
-
 
 # Create your views here.
 def index (request):
@@ -38,8 +34,17 @@ def camera_page (request):
     return render(request,'WebTuts11/camera.html', context)
 
 
+def geolocation_page(request):
+    return render(request, 'WebTuts11/geolocation.html')
+
+def payment_page(request):
+    return render(request, 'WebTuts11/payment.html')
+
+def canvas_page(request):
+    return render(request, 'WebTuts11/canvas.html')
+
 def audio_page (request):
-    return render(request,'WebTuts11/audio.html',{})
+    return render(request,'WebTuts11/audio.html')
 
 def camera_capture_page(request):
 

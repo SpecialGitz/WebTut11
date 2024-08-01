@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>HTML Geolocation</h1>
+    <p>Click the button to get your coordinates.</p>
+
+    <button onclick="getLocation()">Try It</button>
+
+    <p id="demo"></p>
+    <p id="errorMsg"></p>
+    <script>
+        const x = document.getElementById("demo");
+        const error = document.getElementById("errorMsg");
+
+        const latitude = 40.712776;
+        const longitude = -74.005974;
+
+        function approximateDistance(lat1, lon1, lat2, lon2) {
+            const latDistance = (lat2 - lat1) * 111000; // Convert degrees to meters
+            const lonDistance = (lon2 - lon1) * Math.cos(lat1 * Math.PI / 180) * 111000; // Convert degrees to meters, adjusted by latitude
+
+            return Math.sqrt(latDistance * latDistance + lonDistance * lonDistance); // Pythagorean theorem
+        }
+
+
+        function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(showPosition);
+        } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+        }
+            
+        function showPosition(position) {
+            x.innerHTML="Latitude: " + position.coords.latitude + 
+            "<br>Longitude: " + position.coords.longitude;
+            
+            
+            const currentLat = position.coords.latitude;
+            const currentLong = position.coords.longitude;
+            
+            const distance = approximateDistance(currentLat, currentLong, latitude, longitude);
+            
+            if (distance <= 20) {
+                error.innerHTML = "You are within 20 meters of the preset location.";
+                } else {
+                    error.innerHTML = "You are NOT within 20 meters of the preset location.";
+            }
+            
+        }
+    </script>
+
+</body>
+</html>
